@@ -16,6 +16,6 @@
 - добавление//удаление карточек
 - реализация лайков
 
-## [Ссылка](https://srkln.github.io/Mesto/) на проект на github
+## [Ссылка](https://srkln.github.io/mesto/) на проект на github
 
 #### Fun: :grey_question: :bulb: :point_up_2: :question:  — :no_good: ♂ :milky_way:, :construction: :peach:

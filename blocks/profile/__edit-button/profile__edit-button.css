@@ -1,8 +1,8 @@
 .profile__edit-button {
   grid-area: edit-button;
-  background-image: url(../../../images/EditButton-18px.png);
-  background-color: #000;
-  border: 0;
+  background-image: url(../../../images/icon-EditButton.svg);
+  background-color: transparent;
+  border: none;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,9 +18,8 @@
 
 @media screen and (min-width: 880px) {
   .profile__edit-button {
-    background-image: url(../../../images/EditButton-24px.png);
     width: 24px;
     height: 24px;
-    margin: 8px 0px 0px 10px;
+    margin: 8px 0 0 10px;
   }
 }

@@ -12,7 +12,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
-  margin-top:7px;
+  margin-top: 7px;
   max-width: 280px;
 }
 
@@ -20,8 +20,8 @@
   .profile__subtitle {
     font-size: 18px;
     line-height: 22px;
-    margin-top:9px;
+    margin-top: 9px;
     text-align: left;
-    min-width: 500px;
+    max-width: 500px;
   }
 }

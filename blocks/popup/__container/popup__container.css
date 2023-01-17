@@ -1,4 +1,4 @@
-.popup__content {
+.popup__container {
   background-color: #fff;
   border-radius: 10px;
   min-width: 282px;
@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 880px) {
-  .popup__content {
+  .popup__container {
     max-width: 430px;
   }
 }

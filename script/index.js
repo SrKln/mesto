@@ -11,6 +11,8 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 /* функции открытия//закрыли попап Profile */
 
 function openPopup(popup) {
+  popupProfileTitle.value = profileTitle.textContent;
+  popupProfileSubtitle.value = profileSubtitle.textContent;
   popup.classList.add("popup_opened");
 }
 
@@ -29,8 +31,6 @@ function submitFrofile(event) {
 
 /* слушатели  открытия//закрытия  Profile */
 editOpenPopupProfile.addEventListener("click", function () {
-  popupProfileTitle.value = profileTitle.textContent;
-  popupProfileSubtitle.value = profileSubtitle.textContent;
   openPopup(popup);
 });
 

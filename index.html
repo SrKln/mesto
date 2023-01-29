@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Место: базовая функциональность">
+        <meta name="description" content="Место: карточки и попапы">
         <meta name="keywords" content="HTML5, CSS">
         <meta name="author" content="Сергей Клюкин">
         <meta name="theme-color" content="#3f68f9">
@@ -46,7 +46,7 @@
             <div class="popup__container">
                 <button class="popup__close-button popup__close-button_profile" type="button"></button>
                 <h3 class="popup__header">Редактировать профиль</h3>
-                <form class="popup__info" name="popupProfile">
+                <form class="popup__info popup__info_edit-profile" name="popupProfile">
                     <input type="text" class="popup__input popup__input_profile_title" name="popupProfileTitle" placeholder="Тёмный Кря">
                     <input type="text" class="popup__input popup__input_profile_subtitle" name="popupProfileSubtitle" placeholder="Гид из ванны показывает Казань">
                     <button class="popup__submit-button-profile" type="submit">Сохранить</button>
@@ -58,7 +58,7 @@
             <div class="popup__container">
                 <button class="popup__close-button popup__close-button_add-element" type="button"></button>
                 <h3 class="popup__header">Новое место</h3>
-                <form class="popup__info popup__info_add-element" name="popupProfile">
+                <form class="popup__info popup__info_add-element" name="popupElement">
                     <input type="text" class="popup__input popup__input_element-title" name="popupElementTitle" placeholder="Название">
                     <input type="url" class="popup__input popup__input_element-image" name="popupElementImage" placeholder="Ссылка на картинку">
                     <button class="popup__submit-button-profile" type="submit">Создать</button>

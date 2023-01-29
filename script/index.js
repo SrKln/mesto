@@ -79,10 +79,6 @@ function creatElement(elementTitle, elementImage) {
     openPopup(popupOpenImage);
   });
 
-  closeImage.addEventListener("click", () => {
-    closePopup(popupOpenImage);
-  });
-
   return newElement;
 }
 

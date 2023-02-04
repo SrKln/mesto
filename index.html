@@ -1,90 +1,95 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Место: карточки и попапы">
-        <meta name="keywords" content="HTML5, CSS">
-        <meta name="author" content="Сергей Клюкин">
-        <meta name="theme-color" content="#3f68f9">
-        <link rel="stylesheet" href="./pages/index.css">
-        <link type="image/x-icon" rel="shortcut icon" href="./images/favicon.ico">
-        <link type="image/png" sizes="16x16" rel="icon" href="./images/favicon-16x16.png">
-        <link type="image/png" sizes="32x32" rel="icon" href="./images/favicon-32x32.png">
-        <link type="image/png" sizes="96x96" rel="icon" href="./images/favicon-96x96.png">
-        <link type="image/png" sizes="120x120" rel="icon" href="./images/favicon-120x120.png">
-        <link type="image/png" sizes="192x192" rel="icon" href="./images/android-icon-192x192.png">
-        <link sizes="180x180" rel="apple-touch-icon" href="./images/apple-touch-icon-180x180.png">
-        <title>Mesto</title>
-    </head>
-    <body class="root">
-        <header class="header">
-            <div class="header__logo" title="Mesto Россия"></div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Место: валидация форм и попапы" />
+    <meta name="keywords" content="HTML5, CSS" />
+    <meta name="author" content="Сергей Клюкин" />
+    <meta name="theme-color" content="#3f68f9" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link type="image/x-icon" rel="shortcut icon" href="./images/favicon.ico" />
+    <link type="image/png" sizes="16x16" rel="icon" href="./images/favicon-16x16.png" />
+    <link type="image/png" sizes="32x32" rel="icon" href="./images/favicon-32x32.png" />
+    <link type="image/png" sizes="96x96" rel="icon" href="./images/favicon-96x96.png" />
+    <link type="image/png" sizes="120x120" rel="icon" href="./images/favicon-120x120.png" />
+    <link type="image/png" sizes="192x192" rel="icon" href="./images/android-icon-192x192.png" />
+    <link sizes="180x180" rel="apple-touch-icon" href="./images/apple-touch-icon-180x180.png" />
+    <title>Mesto</title>
+  </head>
+  <body class="root">
+    <header class="header">
+      <div class="header__logo" title="Mesto Россия"></div>
+    </header>
 
-        <main class="content">
-            <section class="profile">
-                <div class="profile__avatar"></div>
-                <div class="profile__info">
-                    <h1 class="profile__title">Тёмный Кря</h1>
-                    <button type="button" class="profile__edit-button"></button>
-                    <p class="profile__subtitle">Гид из ванны показывает Казань</p>
-                </div>
-                <button type="button" class="profile__add-button"></button>
-            </section>
-
-            <section class="elements" aria-label="Блок с карточками">
-                <ul class="elements__grid"></ul>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <p class="footer__copyright">&copy; 2023 Сергей Клюкин</p>
-        </footer>
-
-        <div class="popup popup_edit-profile">
-            <div class="popup__container">
-                <button class="popup__close-button popup__close-button_profile" type="button"></button>
-                <h3 class="popup__header">Редактировать профиль</h3>
-                <form class="popup__info popup__info_edit-profile" name="popupProfile">
-                    <input type="text" class="popup__input popup__input_profile_title" name="popupProfileTitle" placeholder="Тёмный Кря">
-                    <input type="text" class="popup__input popup__input_profile_subtitle" name="popupProfileSubtitle" placeholder="Гид из ванны показывает Казань">
-                    <button class="popup__submit-button-profile" type="submit">Сохранить</button>
-                </form>
-            </div>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__avatar"></div>
+        <div class="profile__info">
+          <h1 class="profile__title">Тёмный Кря</h1>
+          <button type="button" class="profile__edit-button"></button>
+          <p class="profile__subtitle">Гид из ванны показывает Казань</p>
         </div>
+        <button type="button" class="profile__add-button"></button>
+      </section>
 
-        <div class="popup popup_add-element">
-            <div class="popup__container">
-                <button class="popup__close-button popup__close-button_add-element" type="button"></button>
-                <h3 class="popup__header">Новое место</h3>
-                <form class="popup__info popup__info_add-element" name="popupElement">
-                    <input type="text" class="popup__input popup__input_element-title" name="popupElementTitle" placeholder="Название">
-                    <input type="url" class="popup__input popup__input_element-image" name="popupElementImage" placeholder="Ссылка на картинку">
-                    <button class="popup__submit-button-profile" type="submit">Создать</button>
-                </form>
-            </div>
+      <section class="elements" aria-label="Блок с карточками">
+        <ul class="elements__grid"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Сергей Клюкин</p>
+    </footer>
+
+    <div class="popup popup_edit-profile">
+      <div class="popup__container">
+        <button class="popup__close-button popup__close-button_profile" type="button"></button>
+        <h3 class="popup__header">Редактировать профиль</h3>
+        <form class="popup__info popup__info_edit-profile" name="popupProfile" novalidate>
+          <input type="text" class="popup__input popup__input_profile_title" id="profile-title-input" name="popupProfileTitle" placeholder="Тёмный Кря" minlength="2" maxlength="40" required />
+          <span class="popup__input-error profile-title-input-error"></span>
+          <input type="text" class="popup__input popup__input_profile_subtitle" id="profile-subtitle-input" name="popupProfileSubtitle" placeholder="Гид из ванны показывает Казань" minlength="2" maxlength="200" required />
+          <span class="popup__input-error profile-subtitle-input-error"></span>
+          <button class="popup__button" type="submit" name="sendForm">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_add-element">
+      <div class="popup__container">
+        <button class="popup__close-button popup__close-button_add-element" type="button"></button>
+        <h3 class="popup__header">Новое место</h3>
+        <form class="popup__info popup__info_add-element" name="popupElement" novalidate>
+          <input type="text" class="popup__input popup__input_element-title" id="element-title-input" name="popupElementTitle" placeholder="Название" required />
+          <span class="popup__input-error element-title-input-error"></span>
+          <input type="url" class="popup__input popup__input_element-image" id="element-image-input" name="popupElementImage" placeholder="Ссылка на картинку" required />
+          <span class="popup__input-error element-image-input-error"></span>
+          <button class="popup__button" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_open-image">
+      <div class="popup__image-container">
+        <img class="popup__image" alt="" src="#" />
+        <p class="popup__image-text"></p>
+        <button class="popup__close-button popup__close-button_image" type="button"></button>
+      </div>
+    </div>
+
+    <template class="element-template">
+      <li class="element">
+        <img class="element__image" alt="" src="#" />
+        <div class="element__info">
+          <h2 class="element__title"></h2>
+          <button class="element__like" type="button"></button>
+          <button class="element__delete" type="button"></button>
         </div>
+      </li>
+    </template>
 
-        <div class="popup popup_open-image">
-            <div class="popup__image-container">
-                <img class="popup__image" alt="" src="#">
-                <p class="popup__image-text"></p>
-                <button class="popup__close-button popup__close-button_image" type="button"></button>
-            </div>
-        </div>
-
-        <template class="element-template">
-            <li class="element">
-                <img class="element__image" alt="" src="#">
-                <div class="element__info">
-                    <h2 class="element__title"></h2>
-                    <button class="element__like" type="button"></button>
-                    <button class="element__delete" type="button"></button>
-                </div>
-            </li>
-        </template>
-
-        <script src="./script/index.js" defer></script>
-    </body>
+    <script src="./script/index.js" defer></script>
+    <script src="./script/validate.js" defer></script>
+  </body>
 </html>

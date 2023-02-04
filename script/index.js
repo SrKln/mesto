@@ -24,6 +24,7 @@ const initialCards = [
     link: "https://i.postimg.cc/hG8NBXxx/image-grid-6.jpg",
   },
 ];
+const allPopap = document.querySelectorAll(".popup");
 
 const profilePopup = document.querySelector(".popup_edit-profile");
 const editClosePopupProfile = profilePopup.querySelector(".popup__close-button_profile");
@@ -91,13 +92,23 @@ function arrayInitialCards(initialCards) {
 
 arrayInitialCards(initialCards);
 
+/* функция закрытие попапов esc*/
+const setEscListener = function (event) {
+  if (event.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+};
+
 /* функции открытия//закрыли всех попапов */
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  window.addEventListener("keyup", setEscListener);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  window.addEventListener("keyup", setEscListener);
 }
 
 /* функция формы попапа Profile */
@@ -114,6 +125,13 @@ function submitElement(event) {
   elementContainer.prepend(creatElement(popupElementTitle.value, popupElementImage.value));
   closePopup(popupAddElement);
   event.target.reset();
+}
+
+/* функция закрытия попапа при клике за границей попапа */
+function closePopupOutZone(event, popup) {
+  if (event == popup) {
+    closePopup(popup);
+  }
 }
 
 /* слушатель открытия Profile */
@@ -141,3 +159,10 @@ popupFormProfile.addEventListener("submit", submitFrofile);
 
 /* слушатель формы попапа AddElement */
 popupFormElement.addEventListener("submit", submitElement);
+
+/* слушатель закрытия при нажатие на зону вне попапа */
+allPopap.forEach((popup) => {
+  popup.addEventListener("click", function (event) {
+    closePopupOutZone(event.target, popup);
+  });
+});

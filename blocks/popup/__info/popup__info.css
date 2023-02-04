@@ -4,6 +4,7 @@
   max-width: 238px;
   margin: 0 22px 25px 21px;
   padding: 0;
+  position: relative;
 }
 
 @media (min-width: 880px) {

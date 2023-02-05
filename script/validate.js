@@ -33,9 +33,18 @@ const setEventListeners = (formElement, config) => {
   });
 };
 
+function blockedButton(formElement, config) {
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  buttonElement.classList.add(config.inactiveButtonClass);
+  buttonElement.setAttribute("disabled", "disabled");
+}
+
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (event) => {
+      blockedButton(formElement, config);
+    });
     setEventListeners(formElement, config);
   });
 };
@@ -53,12 +62,6 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.removeAttribute("disabled");
   }
 };
-
-function blockedButton(formElement, config) {
-  const buttonElement = formElement.querySelector(config.submitButtonSelector);
-  buttonElement.classList.add(config.inactiveButtonClass);
-  buttonElement.setAttribute("disabled", "disabled");
-}
 
 enableValidation({
   formSelector: ".popup__info",

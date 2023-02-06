@@ -60,18 +60,18 @@ const popupInputsError = document.querySelectorAll(".popup__input-error");
 const popupInputs = document.querySelectorAll(".popup__input");
 
 /* функция создания карточки с удалением, лайком и открытием картинки элемента*/
-function creatElement(elementTitle, elementImage) {
+function creatElement(textTitle, urlImage) {
   const newElement = elementTemplate.cloneNode(true);
   const deleteElement = newElement.querySelector(".element__delete");
   const likeElement = newElement.querySelector(".element__like");
 
-  const ElementFoto = newElement.querySelector(".element__image");
-  const ElementTitle = newElement.querySelector(".element__title");
-  const ElementAltTitle = elementTitle + ". Иллюстрация.";
+  const elementImage = newElement.querySelector(".element__image");
+  const elementTitle = newElement.querySelector(".element__title");
+  const elementAltTitle = textTitle + ". Иллюстрация.";
 
-  ElementFoto.src = elementImage;
-  ElementFoto.alt = ElementAltTitle;
-  ElementTitle.textContent = elementTitle;
+  elementImage.src = urlImage;
+  elementImage.alt = elementAltTitle;
+  elementTitle.textContent = textTitle;
 
   deleteElement.addEventListener("click", () => {
     newElement.remove();
@@ -82,9 +82,9 @@ function creatElement(elementTitle, elementImage) {
   });
 
   newElement.querySelector(".element__image").addEventListener("click", () => {
-    popupMaxImage.src = elementImage;
-    popupMaxImage.alt = ElementAltTitle;
-    popupTextImage.textContent = elementTitle;
+    popupMaxImage.src = urlImage;
+    popupMaxImage.alt = elementAltTitle;
+    popupTextImage.textContent = textTitle;
 
     openPopup(popupOpenImage);
   });

@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Место: валидация форм и попапы">
+    <meta name="description" content="Место: ООП и разбиение на модули">
     <meta name="keywords" content="HTML5, CSS">
     <meta name="author" content="Сергей Клюкин">
     <meta name="theme-color" content="#3f68f9">
     <link rel="stylesheet" href="./pages/index.css">
+
+    <script type="module" src="./script/index.js" defer></script>
+
     <link type="image/x-icon" rel="shortcut icon" href="./images/favicon.ico">
     <link type="image/png" sizes="16x16" rel="icon" href="./images/favicon-16x16.png">
     <link type="image/png" sizes="32x32" rel="icon" href="./images/favicon-32x32.png">
@@ -63,9 +66,9 @@
         <form class="popup__info popup__info_add-element" name="formElement" novalidate>
           <input type="text" class="popup__input popup__input_element-title" id="element-title-input" name="formInputTitle" placeholder="Название" minlength="2" maxlength="30" required>
           <span class="popup__input-error element-title-input-error"></span>
-          <input type="url" class="popup__input popup__input_element-image" id="element-image-input" name="formInputImage" placeholder="Ссылка на картинку" required >
+          <input type="url" class="popup__input popup__input_element-image" id="element-image-input" name="formInputImage" placeholder="Ссылка на картинку" required>
           <span class="popup__input-error element-image-input-error"></span>
-          <button class="popup__button" type="submit">Создать</button>
+          <button class="popup__button" type="submit" name="sendForm">Создать</button>
         </form>
       </div>
     </div>
@@ -88,8 +91,5 @@
         </div>
       </li>
     </template>
-
-    <script src="./script/index.js" defer></script>
-    <script src="./script/validate.js" defer></script>
   </body>
 </html>

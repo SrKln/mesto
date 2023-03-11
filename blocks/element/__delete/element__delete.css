@@ -11,6 +11,8 @@
   position: absolute;
   border: none;
   cursor: pointer;
+  -webkit-filter: drop-shadow(0 0 2px #999);
+  filter: drop-shadow(0 0 2px #999);
 }
 
 .element__delete:hover {

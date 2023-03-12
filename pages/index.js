@@ -32,10 +32,6 @@ const cardsGrid = document.querySelector(".elements__grid");
 // находим все крестики проекта по универсальному селектору
 const closeButtons = document.querySelectorAll(".popup__close-button");
 
-// обнуление ошибок валидации
-const popupInputsError = document.querySelectorAll(".popup__input-error");
-const popupInputs = document.querySelectorAll(".popup__input");
-
 const config = {
   formSelector: ".popup__info",
   inputSelector: ".popup__input",
@@ -71,8 +67,6 @@ function renderBaseCards() {
 function prependCard(item) {
   cardsGrid.prepend(createCard(item));
 }
-
-
 
 /* функция закрытие попапов esc есть++*/
 
@@ -122,8 +116,6 @@ function closePopupOutZone(event, popup) {
   }
 }
 
-
-
 /* валидация Profile */
 
 const validatorProfile = new FormValidator(config, profilePopup);
@@ -132,12 +124,10 @@ validatorProfile.enableValidation();
 /* слушатель открытия Profile */
 
 buttonOpenPopupProfile.addEventListener("click", () => {
-
   titleInputProfile.value = profileTitle.textContent;
   subtitleInputProfile.value = profileSubtitle.textContent;
   openPopup(profilePopup);
   validatorProfile.removeValidationErrors();
-
 });
 
 /* валидация добавление карточки */

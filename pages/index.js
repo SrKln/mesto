@@ -68,7 +68,7 @@ function prependCard(item) {
   cardsGrid.prepend(createCard(item));
 }
 
-/* функция закрытие попапов esc есть++*/
+/* функция закрытие попапов esc */
 
 const setEscListener = function (event) {
   if (event.key === "Escape") {

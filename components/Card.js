@@ -28,7 +28,6 @@ class Card {
 
   getElement() {
     this._element = this._getElementFromTemplate();
-
     this._elementCardFoto = this._element.querySelector(".element__image");
     this._elementCardLike = this._element.querySelector(".element__like");
     this._altName = `${this._name}. Иллюстрация.`;

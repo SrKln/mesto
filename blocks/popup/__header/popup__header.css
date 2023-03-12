@@ -5,8 +5,8 @@
   line-height: 22px;
   color: #000;
   margin: 26px 22px 77px 22px;
-  padding: 0;
   max-width: 238px;
+  padding: 0;
 }
 
 @media (min-width: 880px) {

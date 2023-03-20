@@ -6,7 +6,6 @@ class FormValidator {
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
   }
 
-
   enableValidation() {
     this._formElement.addEventListener("submit", () => {
       this._blockedButton();

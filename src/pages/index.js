@@ -60,10 +60,10 @@ const userInfo = new UserInfo({
   dataDescription: ".profile__subtitle",
 });
 
-const popupEditProfile = new PopupWithForm(".popup_edit-profile", submiteditForm);
+const popupEditProfile = new PopupWithForm(".popup_edit-profile", submitEditForm);
 popupEditProfile.setEventListeners();
 
-function submiteditForm({ formInputTitle, formInputSubtitle }) {
+function submitEditForm({ formInputTitle, formInputSubtitle }) {
   userInfo.setUserInfo({ formInputTitle, formInputSubtitle });
   popupEditProfile.close();
 }

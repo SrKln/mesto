@@ -1,33 +1,45 @@
 import Popup from "./Popup.js";
 
 class PopupWithForm extends Popup {
-  constructor(popupSelector, submitForm) {
+  constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
-    this._submitForm = submitForm;
-    this._popupForm = this._popup.querySelector(".popup__info");
-    this._inputList = this._popupForm.querySelectorAll(".popup__input");
+    this._form = this._popup.querySelector(".popup__info");
+    this._formInputList = this._form.querySelectorAll(".popup__input");
+    this._submitBtn = this._popup.querySelector(".popup__button");
+    this._submitBtnText = this._submitBtn.textContent;
+    this._handleFormSubmit = handleFormSubmit;
+    this.setEventListeners();
   }
 
   _getInputValues() {
-    this._inputValue = {};
-    this._inputList.forEach((input) => {
-      this._inputValue[input.name] = input.value;
+    this._formValues = {};
+
+    this._formInputList.forEach((input) => {
+      this._formValues[input.name] = input.value;
     });
-    return this._inputValue;
+    return this._formValues;
   }
 
   setEventListeners() {
-    super.setEventListeners();
-
-    this._popupForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      this._submitForm(this._getInputValues());
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
     });
+
+    super.setEventListeners();
   }
 
   close() {
+    this._form.reset();
     super.close();
-    this._popupForm.reset();
+  }
+
+  renderLoading(isLoading, loadingText = "Сохранение...") {
+    if (isLoading) {
+      this._submitBtn.textContent = loadingText;
+    } else {
+      this._submitBtn.textContent = this._submitBtnText;
+    }
   }
 }
 

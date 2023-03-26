@@ -1,18 +1,24 @@
 class UserInfo {
-  constructor({ dataName, dataDescription }) {
-    this._elementName = document.querySelector(dataName);
-    this._elementDescription = document.querySelector(dataDescription);
-  }
-  getUserInfo() {
-    return {
-      name: this._elementName.textContent,
-      description: this._elementDescription.textContent,
-    };
+  constructor({ nameSelector, aboutSelector, avatarSelector }) {
+    this._name = document.querySelector(nameSelector);
+    this._about = document.querySelector(aboutSelector);
+    this._avatar = document.querySelector(avatarSelector);
+    this._data = {};
   }
 
-  setUserInfo({ formInputTitle, formInputSubtitle }) {
-    this._elementName.textContent = formInputTitle;
-    this._elementDescription.textContent = formInputSubtitle;
+  getUserInfo() {
+    return this._data;
+  }
+
+  setUserInfo(data) {
+    this._data = data;
+    this._name.textContent = data.name;
+    this._about.textContent = data.about;
+  }
+
+  setUserAvatar(data) {
+    this._data = data;
+    this._avatar.style.backgroundImage = `url(${data.avatar})`;
   }
 }
 

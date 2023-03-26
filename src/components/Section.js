@@ -4,7 +4,11 @@ class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  addItem = (item) => {
+  addItemAppend = (item) => {
+    this._container.append(item);
+  };
+
+  addItemPrepend = (item) => {
     this._container.prepend(item);
   };
 

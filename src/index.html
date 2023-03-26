@@ -8,7 +8,6 @@
     <meta name="author" content="Сергей Клюкин">
     <meta name="theme-color" content="#3f68f9">
 
-
     <link type="image/x-icon" rel="shortcut icon" href="<%=require('./images/favicon.ico')%>">
     <link type="image/png" sizes="16x16" rel="icon" href="<%=require('./images/favicon-16x16.png')%>">
     <link type="image/png" sizes="32x32" rel="icon" href="<%=require('./images/favicon-32x32.png')%>">
@@ -26,12 +25,13 @@
     <main class="content">
       <section class="profile">
         <div class="profile__avatar"></div>
+
         <div class="profile__info">
           <h1 class="profile__title">Тёмный Кря</h1>
-          <button type="button" class="profile__edit-button" name="buttonEbitProfile"></button>
+          <button type="button" class="profile__edit-button" name="button"></button>
           <p class="profile__subtitle">Гид из ванны показывает Казань</p>
         </div>
-        <button type="button" class="profile__add-button"></button>
+        <button type="button" name="button" class="profile__add-button"></button>
       </section>
 
       <section class="elements" aria-label="Блок с карточками">
@@ -48,11 +48,13 @@
         <button class="popup__close-button popup__close-button_profile" type="button"></button>
         <h3 class="popup__header">Редактировать профиль</h3>
         <form class="popup__info popup__info_edit-profile" name="formProfile" novalidate>
-          <input type="text" class="popup__input popup__input_profile_title" id="profile-title-input" name="formInputTitle" placeholder="Введите Имя" minlength="2" maxlength="40" required>
+          <input type="text" class="popup__input popup__input_profile_title" id="profile-title-input" name="name" placeholder="Введите Имя" minlength="2" maxlength="40" required>
           <span class="popup__input-error profile-title-input-error"></span>
-          <input type="text" class="popup__input popup__input_profile_subtitle" id="profile-subtitle-input" name="formInputSubtitle" placeholder="Добавьте пояснение" minlength="2" maxlength="200" required>
+          <input type="text" class="popup__input popup__input_profile_subtitle" id="profile-subtitle-input" name="about" placeholder="Добавьте пояснение" minlength="2" maxlength="200" required>
           <span class="popup__input-error profile-subtitle-input-error"></span>
-          <button class="popup__button" type="submit" name="sendForm">Сохранить</button>
+          <button class="popup__button" type="submit" name="button">
+            Сохранить
+          </button>
         </form>
       </div>
     </div>
@@ -66,7 +68,33 @@
           <span class="popup__input-error element-title-input-error"></span>
           <input type="url" class="popup__input popup__input_element-image" id="element-image-input" name="link" placeholder="Ссылка на картинку" required>
           <span class="popup__input-error element-image-input-error"></span>
-          <button class="popup__button" type="submit" name="sendForm">Создать</button>
+          <button class="popup__button" type="submit" name="button">
+            Создать
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_confirmation">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <h3 class="popup__header popup__header_type_confirmation">Вы уверены?</h3>
+        <form class="popup__info" name="deleteCard">
+          <button class="popup__button" name="button" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_edit-avatar">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button popup__close-btn_edit-avatar"></button>
+        <h3 class="popup__header">Обновить аватар</h3>
+        <form class="popup__info popup__info_edit-avatar" name="addAvatar" novalidate>
+          <input class="popup__input popup__input_edit-avatar" id="popup__input_edit-avatar" name="avatar" type="url" placeholder="Ссылка на аватар" required>
+          <span class="popup__input-error popup__input_edit-avatar-error"></span>
+          <button class="popup__button" name="button" type="submit">
+            Сохранить
+          </button>
         </form>
       </div>
     </div>
@@ -84,12 +112,13 @@
         <img class="element__image" alt="" src="#">
         <div class="element__info">
           <h2 class="element__title"></h2>
-          <button class="element__like" type="button"></button>
           <button class="element__delete" type="button"></button>
+          <div class="element__likes">
+            <button class="element__like" type="button"></button>
+            <span class="element__like-count">0</span>
+          </div>
         </div>
       </li>
     </template>
-
-
   </body>
 </html>

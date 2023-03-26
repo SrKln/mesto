@@ -6,6 +6,7 @@
   row-gap: 19px;
   padding: 0;
   justify-content: center;
+  grid-auto-flow: dense;
 }
 
 @media screen and (min-width: 880px) {

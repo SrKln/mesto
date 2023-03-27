@@ -60,7 +60,7 @@ profileEditAvatar.addEventListener("click", () => {
   formsValidators["addAvatar"].removeValidationErrors();
 });
 
-// Вся валидация
+// Обращение к API
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-61",
   headers: {
@@ -68,6 +68,16 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+let userId;
+
+Promise.all([api.getInitialCards(), api.getUserInfo()])
+  .then(([items, user]) => {
+    userId = user._id;
+    userProfile.setUserInfo(user);
+    cards.renderItems(items);
+  })
+  .catch((err) => console.log(err));
 
 api
   .getUserInfo()
@@ -95,7 +105,7 @@ api
 
 function createCard(data) {
   data.user = userProfile.getUserInfo();
-  const card = new Card(data, ".element-template", {
+  const card = new Card(data, ".element-template", userId, {
     click: handleCardClick,
     like: (currentData, callback) => {
       if (card.isLike()) {

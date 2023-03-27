@@ -1,9 +1,12 @@
 class Card {
-  constructor(data, templateSelector, handleCard) {
+  userId;
+  constructor(data, templateSelector, userId, handleCard) {
     this._titleValue = data.name;
     this._linkValue = data.link;
     this._likes = data.likes;
     this._data = data;
+
+    this._userId = userId;
 
     this._handleCardLike = handleCard.like;
     this._handleCardDelete = handleCard.delete;
@@ -17,12 +20,12 @@ class Card {
   }
 
   _isOwner() {
-    return this._data.user._id === this._data.owner._id;
+    return this._userId === this._data.owner._id;
   }
 
   isLike() {
-    return this._data.likes.some((item) => {
-      return item._id === this._data.user._id;
+    return this._data.likes.some((user) => {
+      return this._userId === user._id;
     });
   }
 

@@ -96,12 +96,7 @@ const cards = new Section(
   ".elements__grid"
 );
 
-api
-  .getInitialCards()
-  .then((items) => {
-    cards.renderItems(items);
-  })
-  .catch((err) => console.log(err));
+
 
 function createCard(data) {
   data.user = userProfile.getUserInfo();
